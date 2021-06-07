@@ -9,6 +9,25 @@ n = 3, so I expect a 3x3 square back just like below as a string:
 +++
 */
 
-function generateShape(integer){
+const generateShape = (integer) => {
+  let shape = '';
+  let lap = 0;
+  let index = 0;
+  while(lap < integer){
+    if(index < integer) {
+      shape += '+';
+      index++;
+    }
+    if(index === integer && lap + 1 < integer) {
+      lap++;
+      index = 0;
+      shape += '\n';
+    }
+    if(index === integer && lap + 1 === integer) {
+      lap++;
+      index = 0;
+    }
+  }
 
+  return shape
 }
